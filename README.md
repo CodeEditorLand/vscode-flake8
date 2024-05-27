@@ -1,16 +1,10 @@
 # Flake8 extension for Visual Studio Code
 
-A Visual Studio Code extension with support for the Flake8 linter. The extension
-ships with `flake8==7.0.0`.
+A Visual Studio Code extension with support for the Flake8 linter. The extension ships with `flake8==7.0.0`.
 
-> **Note**: The minimum version of Flake8 this extension supports is 5.0.0. If
-> you are having issues with Flake8, please report it to
-> [this issue tracker](https://github.com/PyCQA/flake8/issues) as this extension
-> is just a wrapper around Flake8.
+> **Note**: The minimum version of Flake8 this extension supports is 5.0.0. If you are having issues with Flake8, please report it to [this issue tracker](https://github.com/PyCQA/flake8/issues) as this extension is just a wrapper around Flake8.
 
-This extension supports all
-[actively supported versions](https://devguide.python.org/versions/#status-of-python-versions)
-of the Python language (i.e., Python >= 3.8).
+This extension supports all [actively supported versions](https://devguide.python.org/versions/#status-of-python-versions) of the Python language (i.e., Python >= 3.8).
 
 For more information on Flake8, see https://flake8.pycqa.org/
 
@@ -18,43 +12,22 @@ For more information on Flake8, see https://flake8.pycqa.org/
 
 ## Usage and Features
 
-The Flake8 extension provides features to improve your productivity while
-working on Python code in Visual Studio Code. Check out the
-[Settings section](#settings) below for more details on how to customize the
-extension.
+The Flake8 extension provides features to improve your productivity while working on Python code in Visual Studio Code. Check out the [Settings section](#settings) below for more details on how to customize the extension.
 
--   **Integrated Linting**: Once this extension is installed in Visual Studio
-    Code, Flake8 is automatically executed when you open a Python file,
-    providing immediate feedback on your code quality.
--   **Customizable Flake8 Version**: By default, this extension uses the version
-    of Flake8 that is shipped with the extension. However, you can configure it
-    to use a different binary installed in your environment through the
-    `flake8.importStrategy` setting, or set it to a custom Flake8 executable
-    through the `flake8.path` settings.
--   **Mono repo support**: If you are working with a mono repo, you can
-    configure the extension to lint Python files in subfolders of the workspace
-    root folder by setting the `flake8.cwd` setting to `${fileDirname}`. You can
-    also set it to ignore/skip linting for certain files or folder paths by
-    specifying a glob pattern to the `flake8.ignorePatterns` setting.
--   **Customizable Linting Rules**: You can customize the severity of specific
-    Flake8 error codes through the `flake8.severity` setting.
+-   **Integrated Linting**: Once this extension is installed in Visual Studio Code, Flake8 is automatically executed when you open a Python file, providing immediate feedback on your code quality.
+-   **Customizable Flake8 Version**: By default, this extension uses the version of Flake8 that is shipped with the extension. However, you can configure it to use a different binary installed in your environment through the `flake8.importStrategy` setting, or set it to a custom Flake8 executable through the `flake8.path` settings.
+-   **Mono repo support**: If you are working with a mono repo, you can configure the extension to lint Python files in subfolders of the workspace root folder by setting the `flake8.cwd` setting to `${fileDirname}`. You can also set it to ignore/skip linting for certain files or folder paths by specifying a glob pattern to the `flake8.ignorePatterns` setting.
+-   **Customizable Linting Rules**: You can customize the severity of specific Flake8 error codes through the `flake8.severity` setting.
 
 ### Disabling Flake8
 
-You can skip linting with Flake8 for specific files or directories by setting
-the `flake8.ignorePatterns` setting.
+You can skip linting with Flake8 for specific files or directories by setting the `flake8.ignorePatterns` setting.
 
-If you wish to disable linting with Flake8 for your entire workspace or
-globally, you can
-[disable this extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_disable-an-extension)
-in Visual Studio Code. Alternatively, you can also disable Flake8 for your
-entire workspace by setting `"flake8.enabled" : false` in your `settings.json`
-file.
+If you wish to disable linting with Flake8 for your entire workspace or globally, you can [disable this extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_disable-an-extension) in Visual Studio Code. Alternatively, you can also disable Flake8 for your entire workspace by setting `"flake8.enabled" : false` in your `settings.json` file.
 
 ## Settings
 
-There are several settings you can configure to customize the behavior of this
-extension.
+There are several settings you can configure to customize the behavior of this extension.
 
 <table>
     <thead>
@@ -112,18 +85,14 @@ extension.
     </tbody>
 </table>
 
-The following variables are supported for substitution in the `flake8.args`,
-`flake8.cwd`, `flake8.path`, `flake8.interpreter` and `flake8.ignorePatterns`
-settings:
+The following variables are supported for substitution in the `flake8.args`, `flake8.cwd`, `flake8.path`, `flake8.interpreter` and `flake8.ignorePatterns` settings:
 
 -   `${workspaceFolder}`
 -   `${workspaceFolder:FolderName}`
 -   `${userHome}`
 -   `${env:EnvVarName}`
 
-The `flake8.path` setting also supports the `${interpreter}` variable as one of
-the entries of the array. This variable is subtituted based on the value of the
-`flake8.interpreter` setting.
+The `flake8.path` setting also supports the `${interpreter}` variable as one of the entries of the array. This variable is subtituted based on the value of the `flake8.interpreter` setting.
 
 ## Commands
 
@@ -133,35 +102,19 @@ the entries of the array. This variable is subtituted based on the value of the
 
 ## Logging
 
-From the Command Palette (**View** > **Command Palette ...**), run the
-**Developer: Set Log Level...** command. Select **Flake8** from the **Extension
-logs** group. Then select the log level you want to set.
+From the Command Palette (**View** > **Command Palette ...**), run the **Developer: Set Log Level...** command. Select **Flake8** from the **Extension logs** group. Then select the log level you want to set.
 
-Alternatively, you can set the `flake8.trace.server` setting to `verbose` to get
-more detailed logs from the Flake8 server. This can be helpful when filing bug
-reports.
+Alternatively, you can set the `flake8.trace.server` setting to `verbose` to get more detailed logs from the Flake8 server. This can be helpful when filing bug reports.
 
-To open the logs, click on the language status icon (`{}`) on the bottom right
-of the Status bar, next to the Python language mode. Locate the **Flake8** entry
-and select **Open logs**.
+To open the logs, click on the language status icon (`{}`) on the bottom right of the Status bar, next to the Python language mode. Locate the **Flake8** entry and select **Open logs**.
 
 ## Troubleshooting
 
-In this section, you will find some common issues you might encounter and how to
-resolve them. If you are experiencing any issues that are not covered here,
-please [file an issue](https://github.com/microsoft/vscode-flake8/issues).
+In this section, you will find some common issues you might encounter and how to resolve them. If you are experiencing any issues that are not covered here, please [file an issue](https://github.com/microsoft/vscode-flake8/issues).
 
--   If the `flake8.importStrategy` setting is set to `fromEnvironment` but
-    Flake8 is not found in the selected environment, this extension will
-    fallback to using the Flake8 binary that is shipped with the extension.
-    However, if there are dependencies installed in the environment, those
-    dependencies will be used along with the shipped Flake8 binary. This can
-    lead to problems if the dependencies are not compatible with the shipped
-    Flake8 binary.
+-   If the `flake8.importStrategy` setting is set to `fromEnvironment` but Flake8 is not found in the selected environment, this extension will fallback to using the Flake8 binary that is shipped with the extension. However, if there are dependencies installed in the environment, those dependencies will be used along with the shipped Flake8 binary. This can lead to problems if the dependencies are not compatible with the shipped Flake8 binary.
 
     To resolve this issue, you can:
 
-    -   Set the `flake8.importStrategy` setting to `useBundled` and the
-        `flake8.path` setting to point to the custom binary of Flake8 you want
-        to use; or
+    -   Set the `flake8.importStrategy` setting to `useBundled` and the `flake8.path` setting to point to the custom binary of Flake8 you want to use; or
     -   Install Flake8 in the selected environment.
