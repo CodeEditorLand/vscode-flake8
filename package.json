@@ -1,14 +1,13 @@
 {
-	"activationEvents": [
-		"onLanguage:python",
-		"workspaceContains:.flake8",
-		"workspaceContains:*.py"
-	],
-	"capabilities": {
-		"virtualWorkspaces": {
-			"description": "Virtual Workspaces are not supported with flake8.",
-			"supported": false
-		}
+	"name": "flake8",
+	"displayName": "Flake8",
+	"description": "%extension.description%",
+	"main": "./dist/extension.js",
+	"scripts": {
+		"compile": "webpack",
+		"compile-tests": "tsc -p . --outDir out",
+		"vsce-package": "vsce package -o flake8.vsix",
+		"watch-tests": "tsc -p . -w --outDir out"
 	},
 	"contributes": {
 		"commands": [
@@ -152,10 +151,14 @@
 			}
 		]
 	},
+	"activationEvents": [
+		"onLanguage:python",
+		"workspaceContains:.flake8",
+		"workspaceContains:*.py"
+	],
 	"dependencies": {
 		"fs-extra": "11.2.0"
 	},
-	"description": "%extension.description%",
 	"devDependencies": {
 		"@types/fs-extra": "11.0.4",
 		"@types/glob": "8.1.0",
@@ -163,23 +166,20 @@
 		"glob": "10.4.2",
 		"ts-loader": "9.5.1"
 	},
-	"displayName": "Flake8",
 	"extensionDependencies": [
 		"ms-python.python"
 	],
+	"icon": "icon.png",
 	"galleryBanner": {
 		"color": "#1e415e",
 		"theme": "dark"
 	},
-	"icon": "icon.png",
-	"main": "./dist/extension.js",
-	"name": "flake8",
 	"preview": true,
-	"scripts": {
-		"compile": "webpack",
-		"compile-tests": "tsc -p . --outDir out",
-		"vsce-package": "vsce package -o flake8.vsix",
-		"watch-tests": "tsc -p . -w --outDir out"
+	"capabilities": {
+		"virtualWorkspaces": {
+			"description": "Virtual Workspaces are not supported with flake8.",
+			"supported": false
+		}
 	},
 	"serverInfo": {
 		"module": "flake8",
