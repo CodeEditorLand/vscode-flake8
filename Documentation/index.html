@@ -1,0 +1,158 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charset="utf-8"/><meta name="keywords" content="@playform/document"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>flake8</title><meta name="description" content="Documentation for flake8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><link rel="stylesheet" href="assets/custom.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">flake8</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h2>flake8</h2></div><div class="tsd-panel tsd-typography"><a id="md:flake8-extension-for-visual-studio-code" class="tsd-anchor"></a><h1 class="tsd-anchor-link">Flake8 extension for Visual Studio Code<a href="#md:flake8-extension-for-visual-studio-code" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1><p>A Visual Studio Code extension with support for the Flake8 linter. The extension
+ships with <code>flake8==7.1.0</code>.</p>
+<blockquote>
+<p><strong>Note</strong>: The minimum version of Flake8 this extension supports is 5.0.0. If
+you are having issues with Flake8, please report it to
+<a href="https://github.com/PyCQA/flake8/issues">this issue tracker</a> as this extension
+is just a wrapper around Flake8.</p>
+</blockquote>
+<p>This extension supports all
+<a href="https://devguide.python.org/versions/#status-of-python-versions">actively supported versions</a>
+of the Python language (i.e., Python &gt;= 3.8).</p>
+<p>For more information on Flake8, see <a href="https://flake8.pycqa.org/">https://flake8.pycqa.org/</a></p>
+<ul>
+<li>Minimum supported version of <code>flake8</code> is <code>5.0.0</code>.</li>
+</ul>
+<a id="md:usage-and-features" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Usage and Features<a href="#md:usage-and-features" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>The Flake8 extension provides features to improve your productivity while
+working on Python code in Visual Studio Code. Check out the
+<a href="#md:settings">Settings section</a> below for more details on how to customize the
+extension.</p>
+<ul>
+<li><strong>Integrated Linting</strong>: Once this extension is installed in Visual Studio
+Code, Flake8 is automatically executed when you open a Python file,
+providing immediate feedback on your code quality.</li>
+<li><strong>Customizable Flake8 Version</strong>: By default, this extension uses the version
+of Flake8 that is shipped with the extension. However, you can configure it
+to use a different binary installed in your environment through the
+<code>flake8.importStrategy</code> setting, or set it to a custom Flake8 executable
+through the <code>flake8.path</code> settings.</li>
+<li><strong>Mono repo support</strong>: If you are working with a mono repo, you can
+configure the extension to lint Python files in subfolders of the workspace
+root folder by setting the <code>flake8.cwd</code> setting to <code>${fileDirname}</code>. You can
+also set it to ignore/skip linting for certain files or folder paths by
+specifying a glob pattern to the <code>flake8.ignorePatterns</code> setting.</li>
+<li><strong>Customizable Linting Rules</strong>: You can customize the severity of specific
+Flake8 error codes through the <code>flake8.severity</code> setting.</li>
+</ul>
+<a id="md:disabling-flake8" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Disabling Flake8<a href="#md:disabling-flake8" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>You can skip linting with Flake8 for specific files or directories by setting
+the <code>flake8.ignorePatterns</code> setting.</p>
+<p>If you wish to disable linting with Flake8 for your entire workspace or
+globally, you can
+<a href="https://code.visualstudio.com/docs/editor/extension-marketplace#_disable-an-extension">disable this extension</a>
+in Visual Studio Code. Alternatively, you can also disable Flake8 for your
+entire workspace by setting <code>&quot;flake8.enabled&quot; : false</code> in your <code>settings.json</code>
+file.</p>
+<a id="md:settings" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Settings<a href="#md:settings" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>There are several settings you can configure to customize the behavior of this
+extension.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Settings</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>flake8.args</td>
+            <td><code>[]</code></td>
+            <td>Arguments passed to Flake8 for linting Python files. Each argument should be provided as a separate string in the array. <br> Example: <code>"flake8.args": ["--config=<file>"] </code></td>
+        </tr>
+        <tr>
+            <td>flake8.cwd</td>
+            <td><code>${workspaceFolder}</code></td>
+            <td>Sets the current working directory used to lint Python files with Flake8. By default, it uses the root directory of the workspace <code>${workspaceFolder}</code>. You can set it to <code>${fileDirname}</code> to use the parent folder of the file being linted as the working directory for Flake8.</td>
+        </tr>
+        <tr>
+            <td>flake8.severity</td>
+            <td><code>{ "convention": "Information", "error": "Error", "fatal": "Error", "refactor": "Hint", "warning": "Warning", "info": "Information" }</code></td>
+            <td>Mapping of Flake8's message types to VS Code's diagnostic severity levels as displayed in the Problems window. You can also use it to override specific Flake8 error codes. <br> Example: <code>{ "convention": "Information", "error": "Error", "fatal": "Error", "refactor": "Hint", "warning": "Warning", "W0611": "Error", "undefined-variable": "Warning" }</code></td>
+        </tr>
+        <tr>
+            <td>flake8.path</td>
+            <td><code>[]</code></td>
+            <td>"Path or command to be used by the extension to lint Python files with Flake8. Accepts an array of a single or multiple strings. If passing a command, each argument should be provided as a separate string in the array. If set to <code>["flake8"]</code>, it will use the version of Flake8 available in the PATH environment variable. <br> Note: Using this option may slowdown linting. <br>Examples: <br>- <code>"flake8.path" : ["~/global_env/flake8"]</code> <br>- <code>"flake8.path" : ["conda", "run", "-n", "lint_env", "python", "-m", "flake8"]</code> <br>- <code>"flake8.path" : ["flake8"]</code> <br>- <code>"flake8.path" : ["${interpreter}", "-m", "flake8"]</code></td>
+        </tr>
+        <tr>
+            <td>flake8.interpreter</td>
+            <td><code>[]</code></td>
+            <td>Path to a Python executable or a command that will be used to launch the Flake8 server and any subprocess. Accepts an array of a single or multiple strings. When set to <code>[]</code>, the extension will use the path to the selected Python interpreter. If passing a command, each argument should be provided as a separate string in the array.</td>
+        </tr>
+        <tr>
+            <td>flake8.importStrategy</td>
+            <td><code>useBundled</code></td>
+            <td>Defines which Flake8 binary to be used to lint Python files. When set to useBundled, the extension will use the Flake8 binary that is shipped with the extension. When set to fromEnvironment, the extension will attempt to use the Flake8 binary and all dependencies that are available in the currently selected environment. <br> Note: If the extension can't find a valid Flake8 binary in the selected environment, it will fallback to using the Flake8 binary that is shipped with the extension. This setting will be overriden if <code>flake8.path</code> is set.</td>
+        </tr>
+        <tr>
+            <td>flake8.showNotification</td>
+            <td><code>off</code></td>
+            <td>Controls when notifications are shown by this extension. Accepted values are onError, onWarning, always and off.</td>
+        </tr>
+        <tr>
+            <td>flake8.ignorePatterns</td>
+            <td><code>[]</code></td>
+            <td>Configure [glob patterns](https://docs.python.org/3/library/fnmatch.html) as supported by the fnmatch Python library to exclude files or folders from being linted with Flake8.</td>
+        <tr>
+            <td>flake8.enabled</td>
+            <td><code>true</code></td>
+            <td>Specifies whether to enable or disable linting Python files using Flake8. This setting can be applied globally or at the workspace level. If disabled, the linting server itself will continue to be active and monitor read and write events, but it won't perform linting or expose Code Actions. </td>
+        </tr>
+    </tbody>
+</table>
+<p>The following variables are supported for substitution in the <code>flake8.args</code>,
+<code>flake8.cwd</code>, <code>flake8.path</code>, <code>flake8.interpreter</code> and <code>flake8.ignorePatterns</code>
+settings:</p>
+<ul>
+<li><code>${workspaceFolder}</code></li>
+<li><code>${workspaceFolder:FolderName}</code></li>
+<li><code>${userHome}</code></li>
+<li><code>${env:EnvVarName}</code></li>
+</ul>
+<p>The <code>flake8.path</code> setting also supports the <code>${interpreter}</code> variable as one of
+the entries of the array. This variable is subtituted based on the value of the
+<code>flake8.interpreter</code> setting.</p>
+<a id="md:commands" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Commands<a href="#md:commands" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flake8: Restart Server</td>
+<td>Force re-start the linter server.</td>
+</tr>
+</tbody>
+</table>
+<a id="md:logging" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Logging<a href="#md:logging" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>From the Command Palette (<strong>View</strong> &gt; <strong>Command Palette ...</strong>), run the
+<strong>Developer: Set Log Level...</strong> command. Select <strong>Flake8</strong> from the <strong>Extension
+logs</strong> group. Then select the log level you want to set.</p>
+<p>Alternatively, you can set the <code>flake8.trace.server</code> setting to <code>verbose</code> to get
+more detailed logs from the Flake8 server. This can be helpful when filing bug
+reports.</p>
+<p>To open the logs, click on the language status icon (<code>{}</code>) on the bottom right
+of the Status bar, next to the Python language mode. Locate the <strong>Flake8</strong> entry
+and select <strong>Open logs</strong>.</p>
+<a id="md:troubleshooting" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Troubleshooting<a href="#md:troubleshooting" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>In this section, you will find some common issues you might encounter and how to
+resolve them. If you are experiencing any issues that are not covered here,
+please <a href="https://github.com/microsoft/vscode-flake8/issues">file an issue</a>.</p>
+<ul>
+<li>
+<p>If the <code>flake8.importStrategy</code> setting is set to <code>fromEnvironment</code> but
+Flake8 is not found in the selected environment, this extension will
+fallback to using the Flake8 binary that is shipped with the extension.
+However, if there are dependencies installed in the environment, those
+dependencies will be used along with the shipped Flake8 binary. This can
+lead to problems if the dependencies are not compatible with the shipped
+Flake8 binary.</p>
+<p>To resolve this issue, you can:</p>
+<ul>
+<li>Set the <code>flake8.importStrategy</code> setting to <code>useBundled</code> and the
+<code>flake8.path</code> setting to point to the custom binary of Flake8 you want
+to use; or</li>
+<li>Install Flake8 in the selected environment.</li>
+</ul>
+</li>
+</ul>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:flake8-extension-for-visual-studio-code"><span>Flake8 extension for <wbr/>Visual <wbr/>Studio <wbr/>Code</span></a><ul><li><a href="#md:usage-and-features"><span>Usage and <wbr/>Features</span></a></li><li><ul><li><a href="#md:disabling-flake8"><span>Disabling <wbr/>Flake8</span></a></li></ul></li><li><a href="#md:settings"><span>Settings</span></a></li><li><a href="#md:commands"><span>Commands</span></a></li><li><a href="#md:logging"><span>Logging</span></a></li><li><a href="#md:troubleshooting"><span>Troubleshooting</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>flake8</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
