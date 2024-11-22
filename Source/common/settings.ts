@@ -28,6 +28,7 @@ export interface ISettings {
 	path: string[];
 	ignorePatterns: string[];
 	interpreter: string[];
+
 	importStrategy: string;
 	showNotifications: string;
 }
@@ -50,7 +51,9 @@ function resolveVariables(
 	env?: NodeJS.ProcessEnv,
 ): string[] {
 	const substitutions = new Map<string, string>();
+
 	const home = process.env.HOME || process.env.USERPROFILE;
+
 	if (home) {
 		substitutions.set("${userHome}", home);
 	}
@@ -58,11 +61,13 @@ function resolveVariables(
 		substitutions.set("${workspaceFolder}", workspace.uri.fsPath);
 	}
 	substitutions.set("${cwd}", process.cwd());
+
 	getWorkspaceFolders().forEach((w) => {
 		substitutions.set("${workspaceFolder:" + w.name + "}", w.uri.fsPath);
 	});
 
 	env = env || process.env;
+
 	if (env) {
 		for (const [key, value] of Object.entries(env)) {
 			if (value) {
@@ -72,6 +77,7 @@ function resolveVariables(
 	}
 
 	const modifiedValue = [];
+
 	for (const v of value) {
 		if (interpreter && v === "${interpreter}") {
 			modifiedValue.push(...interpreter);
@@ -93,6 +99,7 @@ function getCwd(
 	workspace: WorkspaceFolder,
 ): string {
 	const cwd = config.get<string>("cwd", workspace.uri.fsPath);
+
 	return resolveVariables([cwd], workspace)[0];
 }
 
@@ -101,6 +108,7 @@ export function getInterpreterFromSetting(
 	scope?: ConfigurationScope,
 ) {
 	const config = getConfiguration(namespace, scope);
+
 	return config.get<string[]>("interpreter");
 }
 
@@ -112,8 +120,10 @@ export async function getWorkspaceSettings(
 	const config = getConfiguration(namespace, workspace);
 
 	let interpreter: string[] = [];
+
 	if (includeInterpreter) {
 		interpreter = getInterpreterFromSetting(namespace, workspace) ?? [];
+
 		if (interpreter.length === 0) {
 			traceLog(
 				`No interpreter found from setting ${namespace}.interpreter`,
@@ -123,6 +133,7 @@ export async function getWorkspaceSettings(
 			);
 			interpreter =
 				(await getInterpreterDetails(workspace.uri)).path ?? [];
+
 			if (interpreter.length > 0) {
 				traceLog(
 					`Interpreter from ms-python.python extension for ${workspace.uri.fsPath}:`,
@@ -164,6 +175,7 @@ export async function getWorkspaceSettings(
 		importStrategy: config.get<string>("importStrategy", "useBundled"),
 		showNotifications: config.get<string>("showNotifications", "off"),
 	};
+
 	return workspaceSetting;
 }
 
@@ -173,6 +185,7 @@ function getGlobalValue<T>(
 	defaultValue: T,
 ): T {
 	const inspect = config.inspect<T>(key);
+
 	return inspect?.globalValue ?? inspect?.defaultValue ?? defaultValue;
 }
 
@@ -183,8 +196,10 @@ export async function getGlobalSettings(
 	const config = getConfiguration(namespace);
 
 	let interpreter: string[] = [];
+
 	if (includeInterpreter) {
 		interpreter = getGlobalValue<string[]>(config, "interpreter", []);
+
 		if (interpreter === undefined || interpreter.length === 0) {
 			interpreter = (await getInterpreterDetails()).path ?? [];
 		}
@@ -214,6 +229,7 @@ export async function getGlobalSettings(
 			"off",
 		),
 	};
+
 	return setting;
 }
 
@@ -232,7 +248,9 @@ export function checkIfConfigurationChanged(
 		`${namespace}.showNotifications`,
 		`${namespace}.ignorePatterns`,
 	];
+
 	const changed = settings.map((s) => e.affectsConfiguration(s));
+
 	return changed.includes(true);
 }
 
@@ -245,6 +263,7 @@ export function logLegacySettings(): void {
 				"linting.flake8Enabled",
 				false,
 			);
+
 			if (legacyFlake8Enabled) {
 				traceWarn(
 					`"python.linting.flake8Enabled" is deprecated. You can remove that setting.`,
@@ -261,6 +280,7 @@ export function logLegacySettings(): void {
 			}
 
 			const legacyCwd = legacyConfig.get<string>("linting.cwd");
+
 			if (legacyCwd) {
 				traceWarn(
 					`"python.linting.cwd" is deprecated. Use "flake8.cwd" instead.`,
@@ -274,6 +294,7 @@ export function logLegacySettings(): void {
 				"linting.flake8Args",
 				[],
 			);
+
 			if (legacyArgs.length > 0) {
 				traceWarn(
 					`"python.linting.flake8Args" is deprecated. Use "flake8.args" instead.`,
@@ -288,6 +309,7 @@ export function logLegacySettings(): void {
 				"linting.flake8Path",
 				"",
 			);
+
 			if (legacyPath.length > 0 && legacyPath !== "flake8") {
 				traceWarn(
 					`"python.linting.flake8Path" is deprecated. Use "flake8.path" instead.`,
