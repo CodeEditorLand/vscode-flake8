@@ -22,15 +22,23 @@ const DEFAULT_SEVERITY: Record<string, string> = {
 
 export interface ISettings {
 	cwd: string;
+
 	enabled: boolean;
+
 	workspace: string;
+
 	args: string[];
+
 	severity: Record<string, string>;
+
 	path: string[];
+
 	ignorePatterns: string[];
+
 	interpreter: string[];
 
 	importStrategy: string;
+
 	showNotifications: string;
 }
 
@@ -58,9 +66,11 @@ function resolveVariables(
 	if (home) {
 		substitutions.set("${userHome}", home);
 	}
+
 	if (workspace) {
 		substitutions.set("${workspaceFolder}", workspace.uri.fsPath);
 	}
+
 	substitutions.set("${cwd}", process.cwd());
 
 	getWorkspaceFolders().forEach((w) => {
@@ -91,6 +101,7 @@ function resolveVariables(
 		for (const [key, value] of substitutions) {
 			s = s.replace(key, value);
 		}
+
 		return s;
 	});
 }
@@ -129,9 +140,11 @@ export async function getWorkspaceSettings(
 			traceLog(
 				`No interpreter found from setting ${namespace}.interpreter`,
 			);
+
 			traceLog(
 				`Getting interpreter from ms-python.python extension for workspace ${workspace.uri.fsPath}`,
 			);
+
 			interpreter =
 				(await getInterpreterDetails(workspace.uri)).path ?? [];
 
@@ -269,12 +282,15 @@ export function logLegacySettings(): void {
 				traceWarn(
 					`"python.linting.flake8Enabled" is deprecated. You can remove that setting.`,
 				);
+
 				traceWarn(
 					"The flake8 extension is always enabled. However, you can disable it per workspace using the extensions view.",
 				);
+
 				traceWarn(
 					"You can exclude files and folders using the `python.linting.ignorePatterns` setting.",
 				);
+
 				traceWarn(
 					`"python.linting.flake8Enabled" value for workspace ${workspace.uri.fsPath}: ${legacyFlake8Enabled}`,
 				);
@@ -286,6 +302,7 @@ export function logLegacySettings(): void {
 				traceWarn(
 					`"python.linting.cwd" is deprecated. Use "flake8.cwd" instead.`,
 				);
+
 				traceWarn(
 					`"python.linting.cwd" value for workspace ${workspace.uri.fsPath}: ${legacyCwd}`,
 				);
@@ -300,9 +317,11 @@ export function logLegacySettings(): void {
 				traceWarn(
 					`"python.linting.flake8Args" is deprecated. Use "flake8.args" instead.`,
 				);
+
 				traceWarn(
 					`"python.linting.flake8Args" value for workspace ${workspace.uri.fsPath}:`,
 				);
+
 				traceWarn(`\n${JSON.stringify(legacyArgs, null, 4)}`);
 			}
 
@@ -315,9 +334,11 @@ export function logLegacySettings(): void {
 				traceWarn(
 					`"python.linting.flake8Path" is deprecated. Use "flake8.path" instead.`,
 				);
+
 				traceWarn(
 					`"python.linting.flake8Path" value for workspace ${workspace.uri.fsPath}:`,
 				);
+
 				traceWarn(`\n${JSON.stringify(legacyPath, null, 4)}`);
 			}
 		} catch (err) {
